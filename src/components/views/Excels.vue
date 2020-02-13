@@ -1,7 +1,10 @@
 <template>
+  <div>
     <div id="spreadsheet">
-        <input type="button" value="Add new row" onclick="vm.insertRow()" />
+      <input type="button" value="Add new row" @click="() => spreadsheet.insertRow()" />
+      <input type="button" value="Delete row" @click="() => spreadsheet.deleteRow()" />
     </div>
+  </div>
 </template>
 
 <script>
