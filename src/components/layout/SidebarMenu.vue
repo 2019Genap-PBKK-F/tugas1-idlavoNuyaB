@@ -13,6 +13,12 @@
         <span class="page">Tables</span>
       </a>
     </router-link>
+    <router-link tag="li" class="pageLink" to="/excel">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Excel</span>
+      </a>
+    </router-link>
 
     <li class="header">ME</li>
     <router-link tag="li" class="pageLink" to="/tasks">

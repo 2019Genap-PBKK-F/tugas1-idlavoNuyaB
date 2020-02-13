@@ -10,6 +10,7 @@ import SettingView from './components/views/Setting.vue'
 import AccessView from './components/views/Access.vue'
 import ServerView from './components/views/Server.vue'
 import ReposView from './components/views/Repos.vue'
+import ExcelView from './components/views/Excels.vue'
 
 // Routes
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
         component: TablesView,
         name: 'Tables',
         meta: {description: 'Simple and advance table in CoPilot'}
+      }, {
+        path: 'excel',
+        component: ExcelView,
+        name: 'Excel',
+        meta: {description: 'Simple and advance jexcel in CoPilot'}
       }, {
         path: 'tasks',
         component: TasksView,
