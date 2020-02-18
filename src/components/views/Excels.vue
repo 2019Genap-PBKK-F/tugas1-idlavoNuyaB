@@ -72,14 +72,19 @@ var insertrow = function(instance) {
   })
 }
 
-var deleterow = function(instance) {
+var deleterow = function(instance, id) {
+  var tes
+  console.log(id)
   axios({
-    method: 'delete',
+    method: 'get',
     url: 'http://localhost:3000/mahasiswa/',
     data: {
     }
   }).then((response) => {
-    console.log(response.data)
+    tes = Object.keys(response.data[id]).map(function (key) {
+      return response.data[id][key]
+    })
+    axios.delete('http://localhost:3000/mahasiswa/' + tes[0])
   })
 }
 
