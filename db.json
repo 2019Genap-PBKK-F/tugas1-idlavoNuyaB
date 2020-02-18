@@ -1,0 +1,35 @@
+{
+  "mahasiswa": [
+    {
+      "id": 1,
+      "nrp": "05111740000085",
+      "nama": "Bayu Novaldi",
+      "angkatan": "2017",
+      "jeniskelamin": "Laki-Laki",
+      "tgllahir": "1998-11-04",
+      "photo": "",
+      "aktif": true
+    },
+    {
+      "id": 2,
+      "nrp": "051117400000005",
+      "nama": "B",
+      "angkatan": "2014"
+    },
+    {
+      "id": 3,
+      "nrp": "051117400000005",
+      "nama": "A",
+      "angkatan": "2012"
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    }
+  ]
+}
