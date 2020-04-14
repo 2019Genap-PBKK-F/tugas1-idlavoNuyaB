@@ -1,97 +1,28 @@
 <template>
   <ul class="sidebar-menu">
-    <li class="header">TOOLS</li>
+    <li class="header">Unit</li>
     <router-link tag="li" class="pageLink" to="/">
       <a>
-        <i class="fa fa-desktop"></i>
-        <span class="page">Dashboard</span>
+        <i class="fa fa-table"></i>
+        <span class="page">Kategori Unit</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/tables">
+    <router-link tag="li" class="pageLink" to="/dd">
       <a>
         <i class="fa fa-table"></i>
-        <span class="page">Tables</span>
+        <span class="page">Data Dasar</span>
       </a>
     </router-link>
-    <router-link tag="li" class="pageLink" to="/excel">
+    <router-link tag="li" class="pageLink" to="/unit">
       <a>
         <i class="fa fa-table"></i>
-        <span class="page">Excel</span>
+        <span class="page">Unit</span>
       </a>
     </router-link>
-
-    <li class="header">ME</li>
-    <router-link tag="li" class="pageLink" to="/tasks">
+    <router-link tag="li" class="pageLink" to="/cu">
       <a>
-        <i class="fa fa-tasks"></i>
-        <span class="page">Tasks</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/setting">
-      <a>
-        <i class="fa fa-cog"></i>
-        <span class="page">Settings</span>
-      </a>
-    </router-link>
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-folder-o"></i>
-        <span class="treeview-title">Files</span>
-        <span class="pull-right-container pull-right">
-          <i class="fa fa-angle-left fa-fw"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li>
-          <a href="#">
-            <i class="fa fa-file-word-o"></i> Item 1
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-file-picture-o"></i> Item 2
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-file-pdf-o"></i> Item 3
-          </a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="header">LOGS</li>
-    <router-link tag="li" class="pageLink" to="/access">
-      <a>
-        <i class="fa fa-book"></i>
-        <span class="page">Access</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/server">
-      <a>
-        <i class="fa fa-hdd-o"></i>
-        <span class="page">Server</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/repos">
-      <a>
-        <i class="fa fa-heart"></i>
-        <span class="page">Repos</span>
-        <small class="label pull-right bg-green">AJAX</small>
-      </a>
-    </router-link>
-
-    <li class="header">PAGES</li>
-    <router-link tag="li" class="pageLink" to="/login">
-      <a>
-        <i class="fa fa-circle-o text-yellow"></i>
-        <span class="page"> Login</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/404">
-      <a>
-        <i class="fa fa-circle-o text-red"></i>
-        <span class="page"> 404</span>
+        <i class="fa fa-table"></i>
+        <span class="page">Capaian Unit</span>
       </a>
     </router-link>
   </ul>

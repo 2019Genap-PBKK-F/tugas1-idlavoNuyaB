@@ -2,10 +2,10 @@
   <div :class="['wrapper', classes]">
 
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <dash-header :user="user"></dash-header>
+    <dash-header></dash-header>
     
     <!-- Left side column. contains the logo and sidebar -->
-    <sidebar :user="user" />
+    <sidebar/>
   
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -17,7 +17,7 @@
         </h1>
         <ol class="breadcrumb">
           <li>
-            <a href="javascript:;">
+            <a href="/">
               <i class="fa fa-home"></i>Home</a>
           </li>
           <li class="active">{{$route.name.toUpperCase()}}</li>
@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import faker from 'faker'
 import config from '../config'
 import DashFooter from './layout/DashFooter'
 import DashHeader from './layout/DashHeader'
@@ -54,15 +53,6 @@ export default {
       classes: {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile
-      }
-    }
-  },
-  computed: {
-    user () {
-      return {
-        displayName: faker.name.findName(),
-        avatar: faker.image.avatar(),
-        roles: [faker.name.jobTitle(), faker.name.jobTitle()]
       }
     }
   }
