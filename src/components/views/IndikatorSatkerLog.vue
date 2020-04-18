@@ -10,7 +10,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://nekopar.moe:8000/'
+var host = 'http://10.199.14.46:8017/'
 
 var temp = {}
 
