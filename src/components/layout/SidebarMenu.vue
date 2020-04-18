@@ -4,25 +4,55 @@
     <router-link tag="li" class="pageLink" to="/">
       <a>
         <i class="fa fa-table"></i>
-        <span class="page">Kategori Unit</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/dd">
-      <a>
-        <i class="fa fa-table"></i>
         <span class="page">Data Dasar</span>
-      </a>
-    </router-link>
-    <router-link tag="li" class="pageLink" to="/unit">
-      <a>
-        <i class="fa fa-table"></i>
-        <span class="page">Unit</span>
       </a>
     </router-link>
     <router-link tag="li" class="pageLink" to="/cu">
       <a>
         <i class="fa fa-table"></i>
         <span class="page">Capaian Unit</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/ip">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Indikator Periode</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/is">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Indikator Satuan Kerja</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/isl">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Indikator Satuan Kerja Log</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/js">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Jenis Satuan Kerja</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/mi">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Master Indikator</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/p">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Periode</span>
+      </a>
+    </router-link>
+    <router-link tag="li" class="pageLink" to="/sk">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Satuan Kerja</span>
       </a>
     </router-link>
   </ul>

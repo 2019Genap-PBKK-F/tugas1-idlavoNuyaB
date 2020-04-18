@@ -12,28 +12,24 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://10.199.14.46:8017/'
+var host = 'http://nekopar.moe:8000/'
 
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
-  x = parseInt(x)
-  y = parseInt(y)
   var datatemp = []
-  datatemp[0] = y + 1
-  axios.get(host + 'api/kategoriunit/' + datatemp[0]).then((response) => {
-    console.log(response.data)
-    datatemp = Object.values(response.data[0])
+  axios.get(host + 'api/jenissatker/').then((response) => {
+    datatemp = Object.values(response.data[y])
     datatemp[x] = value
-    console.log(datatemp)
     axios({
       method: 'put',
-      url: host + 'api/kategoriunit/' + datatemp[0],
+      url: host + 'api/jenissatker/' + datatemp[0],
       data: {
         id: datatemp[0],
         nama: datatemp[1]
       }
     }).then((response) => {
       console.log(response.data)
+      console.log('Update Berhasil')
     })
   })
 }
@@ -41,12 +37,13 @@ var changed = function(instance, cell, x, y, value) {
 var insertrow = function(instance) {
   axios({
     method: 'post',
-    url: host + 'api/kategoriunit/',
+    url: host + 'api/jenissatker/',
     data: {
       nama: ' '
     }
   }).then((response) => {
     console.log(response.data)
+    console.log('Insert Berhasil')
   }).catch(err => {
     console.log(err)
   })
@@ -56,12 +53,13 @@ var deleterow = function(instance, id) {
   var tes
   axios({
     method: 'get',
-    url: host + 'api/kategoriunit/',
+    url: host + 'api/jenissatker/',
     data: {
     }
   }).then((response) => {
     tes = Object.values(response.data[id])
-    axios.delete(host + 'api/kategoriunit/' + tes[0])
+    axios.delete(host + 'api/jenissatker/' + tes[0])
+    console.log('Delete Success')
   })
 }
 
@@ -72,9 +70,9 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host + 'api/kategoriunit/').then(res => {
+      axios.get(host + 'api/jenissatker/').then(res => {
         temp = res.data
-        console.log(temp)
+        console.log('Data ke load')
         var options = {
           data: temp,
           onchange: changed,
@@ -83,7 +81,10 @@ export default {
           allowToolbar: true,
           columns: [
             { type: 'hidden', title: 'id', width: '120px' },
-            { type: 'text', title: 'Nama', width: '120px' }
+            { type: 'text', title: 'Nama', width: '120px' },
+            { type: 'text', title: 'Create_Date', width: '120px', readOnly: true },
+            { type: 'text', title: 'Last_Update', width: '120px', readOnly: true },
+            { type: 'text', title: 'Expired_Date', width: '120px', readOnly: true }
           ]
         }
         let spreadsheet = jexcel(this.$el, options)

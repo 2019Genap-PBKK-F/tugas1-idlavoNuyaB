@@ -17,20 +17,19 @@ var host = 'http://nekopar.moe:8000/'
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
   var datatemp = []
-  axios.get(host + 'api/capaianunit/').then((response) => {
+  axios.get(host + 'api/indikatorperiode/').then((response) => {
     datatemp = Object.values(response.data[y])
     var dasar = datatemp[0]
     var unit = datatemp[1]
-    console.log(unit)
     datatemp[x] = value
     console.log(datatemp)
     axios({
       method: 'put',
-      url: host + 'api/capaianunit/' + unit + dasar,
+      url: host + 'api/indikatorperiode/' + dasar + unit,
       data: {
-        id_satker: datatemp[0],
-        id_datadasar: datatemp[1],
-        capaian: datatemp[3]
+        id_master: datatemp[0],
+        id_periode: datatemp[1],
+        bobot: datatemp[2]
       }
     }).then((response) => {
       console.log(response.data)
@@ -40,7 +39,7 @@ var changed = function(instance, cell, x, y, value) {
 }
 
 var insertrow = function(instance) {
-  axios.get(host + 'api/satker/nama').then(res => {
+  axios.get(host + 'api/periode/nama').then(res => {
     var count = Object.keys(res.data).length
     var hasil = []
     var sebenarnya = []
@@ -55,11 +54,11 @@ var insertrow = function(instance) {
     console.log(randoman)
     axios({
       method: 'post',
-      url: host + 'api/capaianunit/',
+      url: host + 'api/indikatorperiode/',
       data: {
-        id_satker: adalah,
-        id_datadasar: 1,
-        capaian: 0
+        id_master: 8,
+        id_periode: adalah,
+        bobot: 0
       }
     }).then((response) => {
       console.log(response.data)
@@ -74,12 +73,12 @@ var deleterow = function(instance, id) {
   var tes
   axios({
     method: 'get',
-    url: host + 'api/capaianunit/',
+    url: host + 'api/indikatorperiode/',
     data: {
     }
   }).then((response) => {
     tes = Object.values(response.data[id])
-    axios.delete(host + 'api/capaianunit/' + tes[1] + tes[0])
+    axios.delete(host + 'api/indikatorperiode/' + tes[0] + tes[1])
     console.log('Delete Success')
   })
 }
@@ -91,30 +90,21 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host + 'api/capaianunit/').then(res => {
+      axios.get(host + 'api/indikatorperiode/').then(res => {
         temp = res.data
-        var tes = Object.keys(temp).length
-        var temporal = []
-        for (var i = 0; i < tes; i++) {
-          temporal[i] = Object.values(temp[i])
-          var datetime = new Date(temporal[i][2])
-          temporal[i][2] = datetime.toISOString().replace('Z', '').replace('T', ' ')
-        }
-        console.log(temporal)
-        axios.get(host + 'api/satker/nama').then(resp => {
-          axios.get(host + 'api/datadasar/nama').then(response => {
+        axios.get(host + 'api/masterindikator/nama').then(resp => {
+          axios.get(host + 'api/periode/nama').then(response => {
             console.log('Data ke load')
             var options = {
-              data: temporal,
+              data: temp,
               onchange: changed,
               oninsertrow: insertrow,
               ondeleterow: deleterow,
               allowToolbar: true,
               columns: [
-                { type: 'dropdown', title: 'ID Satker', width: '120px', autocomplete: true, source: resp.data },
-                { type: 'dropdown', title: 'ID DataDasar', width: '120px', autocomplete: true, source: response.data },
-                { type: 'text', title: 'Waktu', width: '120px', readOnly: true },
-                { type: 'text', title: 'Capaian', width: '120px' }
+                { type: 'dropdown', title: 'ID Master', width: '120px', autocomplete: true, source: resp.data },
+                { type: 'dropdown', title: 'ID Periode', width: '120px', autocomplete: true, source: response.data },
+                { type: 'text', title: 'Bobot', width: '120px' }
               ]
             }
             let spreadsheet = jexcel(this.$el, options)

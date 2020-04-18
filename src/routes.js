@@ -2,10 +2,15 @@ import DashView from './components/Dash.vue'
 import NotFoundView from './components/404.vue'
 
 // Import Views - Dash
-import KUView from './components/views/KategoriUnit.vue'
-import UView from './components/views/Unit.vue'
 import DDUView from './components/views/DataDasar.vue'
 import CUView from './components/views/CapaianUnit.vue'
+import IPView from './components/views/IndikatorPeriode.vue'
+import PView from './components/views/Periode.vue'
+import MIView from './components/views/MasterIndikator.vue'
+import SKView from './components/views/SatuanKerja.vue'
+import ISView from './components/views/IndikatorSatker.vue'
+import ISLView from './components/views/IndikatorSatkerLog.vue'
+import JSView from './components/views/JenisSatker.vue'
 
 // Routes
 const routes = [
@@ -14,19 +19,8 @@ const routes = [
     component: DashView,
     children: [
       {
-        path: 'kategoriunit',
-        alias: '',
-        component: KUView,
-        name: 'Kategori Unit',
-        meta: {description: 'Ini buat apa??'}
-      }, {
-        path: 'unit',
-        component: UView,
-        name: 'Unit',
-        meta: {description: 'Unit dibeli'}
-      }, {
         path: 'datadasar',
-        alias: 'dd',
+        alias: '',
         component: DDUView,
         name: 'Data Dasar',
         meta: {description: 'Datanya dasarannya seperti apa?'}
@@ -35,6 +29,48 @@ const routes = [
         alias: 'cu',
         component: CUView,
         name: 'Capaian Unit',
+        meta: {description: 'Apa yang telah dicapai??'}
+      }, {
+        path: 'indikatorperiode',
+        alias: 'ip',
+        component: IPView,
+        name: 'Indikator Periode',
+        meta: {description: 'Indikator Periode??'}
+      }, {
+        path: 'periode',
+        alias: 'p',
+        component: PView,
+        name: 'Periode',
+        meta: {description: 'Periode??'}
+      }, {
+        path: 'indikatorsatker',
+        alias: 'is',
+        component: ISView,
+        name: 'Indikator Satuan Kerja',
+        meta: {description: 'Apa yang telah dicapai??'}
+      }, {
+        path: 'indikatorsatkerlog',
+        alias: 'isl',
+        component: ISLView,
+        name: 'Indikator Satuan Kerja Log',
+        meta: {description: 'Apa yang telah dicapai??'}
+      }, {
+        path: 'jenissatker',
+        alias: 'js',
+        component: JSView,
+        name: 'Jenis Satuan Kerja',
+        meta: {description: 'Apa yang telah dicapai??'}
+      }, {
+        path: 'masterindikator',
+        alias: 'mi',
+        component: MIView,
+        name: 'Master Indikator',
+        meta: {description: 'Apa yang telah dicapai??'}
+      }, {
+        path: 'satker',
+        alias: 'sk',
+        component: SKView,
+        name: 'Satuan Kerja',
         meta: {description: 'Apa yang telah dicapai??'}
       }
     ]

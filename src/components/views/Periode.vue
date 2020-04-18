@@ -17,12 +17,13 @@ var host = 'http://nekopar.moe:8000/'
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
   var datatemp = []
-  axios.get(host + 'api/datadasar/').then((response) => {
+  axios.get(host + 'api/periode/').then((response) => {
     datatemp = Object.values(response.data[y])
+    var dasar = datatemp[0]
     datatemp[x] = value
     axios({
       method: 'put',
-      url: host + 'api/datadasar/' + datatemp[0],
+      url: host + 'api/periode/' + dasar,
       data: {
         id: datatemp[0],
         nama: datatemp[1]
@@ -37,8 +38,9 @@ var changed = function(instance, cell, x, y, value) {
 var insertrow = function(instance) {
   axios({
     method: 'post',
-    url: host + 'api/datadasar/',
+    url: host + 'api/periode/',
     data: {
+      id: 1000,
       nama: ' '
     }
   }).then((response) => {
@@ -53,12 +55,12 @@ var deleterow = function(instance, id) {
   var tes
   axios({
     method: 'get',
-    url: host + 'api/datadasar/',
+    url: host + 'api/periode/',
     data: {
     }
   }).then((response) => {
     tes = Object.values(response.data[id])
-    axios.delete(host + 'api/datadasar/' + tes[0])
+    axios.delete(host + 'api/periode/' + tes[0])
     console.log('Delete Success')
   })
 }
@@ -70,7 +72,7 @@ export default {
   },
   methods: {
     load() {
-      axios.get(host + 'api/datadasar/').then(res => {
+      axios.get(host + 'api/periode/').then(res => {
         temp = res.data
         console.log('Data ke load')
         var options = {
@@ -80,11 +82,10 @@ export default {
           ondeleterow: deleterow,
           allowToolbar: true,
           columns: [
-            { type: 'hidden', title: 'id', width: '120px' },
+            { type: 'text', title: 'ID', width: '120px' },
             { type: 'text', title: 'Nama', width: '120px' },
             { type: 'text', title: 'Create_Date', width: '120px', readOnly: true },
-            { type: 'text', title: 'Last_Update', width: '120px', readOnly: true },
-            { type: 'text', title: 'Expired_Date', width: '120px', readOnly: true }
+            { type: 'text', title: 'Last_Update', width: '120px', readOnly: true }
           ]
         }
         let spreadsheet = jexcel(this.$el, options)
