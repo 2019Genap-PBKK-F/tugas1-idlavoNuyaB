@@ -79,6 +79,11 @@ export default {
           oninsertrow: insertrow,
           ondeleterow: deleterow,
           allowToolbar: true,
+          tableOverflow: true,
+          tableWidth: '1100px',
+          tableHeight: '480px',
+          lazyLoading: true,
+          loadingSpin: true,
           columns: [
             { type: 'hidden', title: 'id', width: '120px' },
             { type: 'text', title: 'Nama', width: '120px' },

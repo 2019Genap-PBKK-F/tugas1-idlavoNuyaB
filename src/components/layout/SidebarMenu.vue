@@ -55,6 +55,12 @@
         <span class="page">Satuan Kerja</span>
       </a>
     </router-link>
+    <router-link tag="li" class="pageLink" to="/a">
+      <a>
+        <i class="fa fa-table"></i>
+        <span class="page">Aspek</span>
+      </a>
+    </router-link>
   </ul>
 </template>
 <script>

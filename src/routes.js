@@ -3,6 +3,7 @@ import NotFoundView from './components/404.vue'
 
 // Import Views - Dash
 import DDUView from './components/views/DataDasar.vue'
+import AView from './components/views/Aspek.vue'
 import CUView from './components/views/CapaianUnit.vue'
 import IPView from './components/views/IndikatorPeriode.vue'
 import PView from './components/views/Periode.vue'
@@ -71,6 +72,12 @@ const routes = [
         alias: 'sk',
         component: SKView,
         name: 'Satuan Kerja',
+        meta: {description: 'Apa yang telah dicapai??'}
+      }, {
+        path: 'aspek',
+        alias: 'a',
+        component: AView,
+        name: 'Aspek',
         meta: {description: 'Apa yang telah dicapai??'}
       }
     ]
