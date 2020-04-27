@@ -100,15 +100,15 @@ export default {
               allowToolbar: true,
               columns: [
                 { type: 'hidden', title: 'id', width: '120px' },
-                { type: 'dropdown', title: 'ID Pembilang', width: '120px', source: resp.data, autocomplete: true },
-                { type: 'dropdown', title: 'ID Penyebut', width: '120px', source: tes, autocomplete: true },
-                { type: 'dropdown', title: 'ID Aspek', width: '120px', source: respo.data, autocomplete: true },
-                { type: 'text', title: 'Nama', width: '120px' },
-                { type: 'text', title: 'Deskripsi', width: '120px' },
-                { type: 'text', title: 'Default Bobot', width: '120px' },
-                { type: 'text', title: 'Create_Date', width: '120px', readOnly: true },
-                { type: 'text', title: 'Last_Update', width: '120px', readOnly: true },
-                { type: 'text', title: 'Expired_Date', width: '120px', readOnly: true }
+                { type: 'dropdown', title: 'ID Pembilang', width: '300px', source: resp.data, autocomplete: true },
+                { type: 'dropdown', title: 'ID Penyebut', width: '300px', source: tes, autocomplete: true },
+                { type: 'dropdown', title: 'ID Aspek', width: '140px', source: respo.data, autocomplete: true },
+                { type: 'text', title: 'Nama', width: '300px' },
+                { type: 'text', title: 'Deskripsi', width: '480px' },
+                { type: 'text', title: 'Default Bobot', width: '80px' },
+                { type: 'text', title: 'Create_Date', width: '180px', readOnly: true },
+                { type: 'text', title: 'Last_Update', width: '180px', readOnly: true },
+                { type: 'text', title: 'Expired_Date', width: '180px', readOnly: true }
               ]
             }
             let spreadsheet = jexcel(this.$el, options)

@@ -39,7 +39,7 @@ var changed = function(instance, cell, x, y, value) {
 }
 
 var insertrow = function(instance) {
-  axios.get(host + 'api/periode/nama').then(res => {
+  axios.get(host + 'api/masterindikator/nama').then(res => {
     var count = Object.keys(res.data).length
     var hasil = []
     var sebenarnya = []
@@ -56,8 +56,8 @@ var insertrow = function(instance) {
       method: 'post',
       url: host + 'api/indikatorperiode/',
       data: {
-        id_master: 8,
-        id_periode: adalah,
+        id_master: adalah,
+        id_periode: 2020,
         bobot: 0
       }
     }).then((response) => {
@@ -100,9 +100,14 @@ export default {
               onchange: changed,
               oninsertrow: insertrow,
               ondeleterow: deleterow,
+              tableOverflow: true,
+              tableWidth: '1120px',
+              tableHeight: '480px',
+              lazyLoading: true,
+              loadingSpin: true,
               allowToolbar: true,
               columns: [
-                { type: 'dropdown', title: 'ID Master', width: '120px', autocomplete: true, source: resp.data },
+                { type: 'dropdown', title: 'ID Master', width: '1000px', autocomplete: true, source: resp.data },
                 { type: 'dropdown', title: 'ID Periode', width: '120px', autocomplete: true, source: response.data },
                 { type: 'text', title: 'Bobot', width: '120px' }
               ]

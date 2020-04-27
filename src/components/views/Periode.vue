@@ -84,8 +84,8 @@ export default {
           columns: [
             { type: 'text', title: 'ID', width: '120px' },
             { type: 'text', title: 'Nama', width: '120px' },
-            { type: 'text', title: 'Create_Date', width: '120px', readOnly: true },
-            { type: 'text', title: 'Last_Update', width: '120px', readOnly: true }
+            { type: 'text', title: 'Create_Date', width: '180px', readOnly: true },
+            { type: 'text', title: 'Last_Update', width: '180px', readOnly: true }
           ]
         }
         let spreadsheet = jexcel(this.$el, options)

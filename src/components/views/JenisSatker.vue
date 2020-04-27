@@ -78,13 +78,18 @@ export default {
           onchange: changed,
           oninsertrow: insertrow,
           ondeleterow: deleterow,
+          tableOverflow: true,
+          tableWidth: '1120px',
+          tableHeight: '480px',
+          lazyLoading: true,
+          loadingSpin: true,
           allowToolbar: true,
           columns: [
             { type: 'hidden', title: 'id', width: '120px' },
-            { type: 'text', title: 'Nama', width: '120px' },
-            { type: 'text', title: 'Create_Date', width: '120px', readOnly: true },
-            { type: 'text', title: 'Last_Update', width: '120px', readOnly: true },
-            { type: 'text', title: 'Expired_Date', width: '120px', readOnly: true }
+            { type: 'text', title: 'Nama', width: '170px' },
+            { type: 'text', title: 'Create_Date', width: '150px', readOnly: true },
+            { type: 'text', title: 'Last_Update', width: '150px', readOnly: true },
+            { type: 'text', title: 'Expired_Date', width: '150px', readOnly: true }
           ]
         }
         let spreadsheet = jexcel(this.$el, options)

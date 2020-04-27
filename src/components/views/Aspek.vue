@@ -84,7 +84,7 @@ export default {
           columns: [
             { type: 'hidden', title: 'id', width: '120px' },
             { type: 'text', title: 'Aspek', width: '120px' },
-            { type: 'text', title: 'Komponen Aspek', width: '120px' }
+            { type: 'text', title: 'Komponen Aspek', width: '270px' }
           ]
         }
         let spreadsheet = jexcel(this.$el, options)
