@@ -12,7 +12,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://10.199.14.46:8017/'
+var host = 'https://10.199.14.46:8017/'
 
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
@@ -21,9 +21,7 @@ var changed = function(instance, cell, x, y, value) {
     datatemp = Object.values(response.data[y])
     var dasar = datatemp[0]
     var unit = datatemp[1]
-    console.log(unit)
     datatemp[x] = value
-    console.log(datatemp)
     axios({
       method: 'put',
       url: host + 'api/capaianunit/' + unit + dasar,
@@ -33,7 +31,6 @@ var changed = function(instance, cell, x, y, value) {
         capaian: datatemp[3]
       }
     }).then((response) => {
-      console.log(response.data)
       console.log('Update Berhasil')
     })
   })
@@ -52,7 +49,6 @@ var insertrow = function(instance) {
     }
     var randoman = Math.floor(Math.random() * j)
     var adalah = sebenarnya[randoman]
-    console.log(randoman)
     axios({
       method: 'post',
       url: host + 'api/capaianunit/',
@@ -62,7 +58,6 @@ var insertrow = function(instance) {
         capaian: 0
       }
     }).then((response) => {
-      console.log(response.data)
       console.log('Insert Berhasil')
     }).catch(err => {
       console.log(err)
@@ -100,7 +95,6 @@ export default {
           var datetime = new Date(temporal[i][2])
           temporal[i][2] = datetime.toISOString().replace('Z', '').replace('T', ' ')
         }
-        console.log(temporal)
         axios.get(host + 'api/satker/nama').then(resp => {
           axios.get(host + 'api/datadasar/nama').then(response => {
             console.log('Data ke load')

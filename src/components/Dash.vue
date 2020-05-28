@@ -2,7 +2,7 @@
   <div :class="['wrapper', classes]">
 
     <!-- Horizontal bar at top. Contains messages, notifications, tasks and user menu -->
-    <dash-header></dash-header>
+    <dash-header :user="user"></dash-header>
     
     <!-- Left side column. contains the logo and sidebar -->
     <sidebar/>
@@ -24,7 +24,7 @@
         </ol>
       </section>
 
-      <router-view></router-view>
+      <router-view :user="user"></router-view>
     </div>
     <!-- /.content-wrapper -->
   
@@ -53,6 +53,20 @@ export default {
       classes: {
         fixed_layout: config.fixedLayout,
         hide_logo: config.hideLogoOnMobile
+      }
+    }
+  },
+  computed: {
+    user () {
+      var tempuser = localStorage.getItem('user')
+      var user = JSON.parse(tempuser)
+      if (user != null) {
+        return {
+          displayName: user[0].username,
+          induk: user[0].id_induk_satker,
+          satuan: user[0].nama,
+          idnya: user[0].id
+        }
       }
     }
   }

@@ -12,7 +12,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://10.199.14.46:8017/'
+var host = 'https://10.199.14.46:8017/'
 
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
@@ -32,7 +32,6 @@ var changed = function(instance, cell, x, y, value) {
         email: datatemp[2]
       }
     }).then((response) => {
-      console.log(response.data)
       console.log('Update Berhasil')
     })
   })
@@ -50,7 +49,6 @@ var insertrow = function(instance) {
       email: ''
     }
   }).then((response) => {
-    console.log(response.data)
     console.log('Insert Berhasil')
   }).catch(err => {
     console.log(err)
@@ -66,7 +64,6 @@ var deleterow = function(instance, id) {
     }
   }).then((response) => {
     tes = Object.values(response.data[id])
-    console.log(tes[0])
     axios.delete(host + 'api/satker/' + tes[0], {data: {id: tes[0]}})
     console.log('Delete Success')
   })
@@ -82,8 +79,6 @@ export default {
       axios.get(host + 'api/satker/').then(res => {
         temp = res.data
         axios.get(host + 'api/satker/nama/').then(resp => {
-          var tes = resp.data
-          console.log(tes)
           axios.get(host + 'api/jenissatker/nama/').then(re => {
             var hasil = re.data
             console.log('Data ke load')

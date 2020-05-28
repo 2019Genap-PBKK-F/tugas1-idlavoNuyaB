@@ -12,7 +12,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://10.199.14.46:8017/'
+var host = 'https://10.199.14.46:8017/'
 
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
@@ -28,7 +28,6 @@ var changed = function(instance, cell, x, y, value) {
         nama: datatemp[1]
       }
     }).then((response) => {
-      console.log(response.data)
       console.log('Update Berhasil')
     })
   })
@@ -42,7 +41,6 @@ var insertrow = function(instance) {
       nama: ' '
     }
   }).then((response) => {
-    console.log(response.data)
     console.log('Insert Berhasil')
   }).catch(err => {
     console.log(err)

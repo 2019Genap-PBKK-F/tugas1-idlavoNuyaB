@@ -12,7 +12,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://10.199.14.46:8017/'
+var host = 'https://10.199.14.46:8017/'
 
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
@@ -22,9 +22,7 @@ var changed = function(instance, cell, x, y, value) {
     var dasar = datatemp[0]
     var unit = datatemp[1]
     var units = datatemp[2]
-    console.log(dasar + ' ' + unit + ' ' + units)
     datatemp[x] = value
-    console.log(datatemp)
     axios({
       method: 'put',
       url: host + 'api/indikatorsatker/' + unit + '/' + dasar + '/' + units,
@@ -37,7 +35,6 @@ var changed = function(instance, cell, x, y, value) {
         capaian: datatemp[5]
       }
     }).then((response) => {
-      console.log(response.data)
       console.log('Update Berhasil')
     })
   })
@@ -56,7 +53,6 @@ var insertrow = function(instance) {
     }
     var randoman = Math.floor(Math.random() * j)
     var adalah = sebenarnya[randoman]
-    console.log(randoman)
     axios.get(host + 'api/satker/nama').then(respo => {
       var counts = Object.keys(res.data).length
       var hasils = []
@@ -69,7 +65,6 @@ var insertrow = function(instance) {
       }
       var randomans = Math.floor(Math.random() * js)
       var adalahs = sebenarnyas[randomans]
-      console.log(randomans)
       axios({
         method: 'post',
         url: host + 'api/indikatorsatker/',
@@ -82,7 +77,6 @@ var insertrow = function(instance) {
           capaian: 0
         }
       }).then((response) => {
-        console.log(response.data)
         console.log('Insert Berhasil')
       }).catch(err => {
         console.log(err)

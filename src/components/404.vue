@@ -1,6 +1,6 @@
 <template>
   <div id="notFound">
-    <img src="/static/img/logo.png" class="center-block logo">
+    <img src="/05111740000085/static/img/logo.png" class="center-block logo">
 
     <div class="text-center col-sm-12">
       <h1>You are lost.</h1>

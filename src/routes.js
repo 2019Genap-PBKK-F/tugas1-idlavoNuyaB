@@ -1,5 +1,6 @@
 import DashView from './components/Dash.vue'
 import NotFoundView from './components/404.vue'
+import LoginView from './components/Login.vue'
 
 // Import Views - Dash
 import DDUView from './components/views/DataDasar.vue'
@@ -12,16 +13,51 @@ import SKView from './components/views/SatuanKerja.vue'
 import ISView from './components/views/IndikatorSatker.vue'
 import ISLView from './components/views/IndikatorSatkerLog.vue'
 import JSView from './components/views/JenisSatker.vue'
+import DView from './components/views/Dosen.vue'
+import AbView from './components/views/Abmas.vue'
+import PeView from './components/views/Penelitian.vue'
+import PuView from './components/views/Publikasi.vue'
+import Kview from './components/views/Konkin.vue'
 
 // Routes
 const routes = [
   {
+    path: '/login',
+    component: LoginView,
+    meta: {
+      requiresVisitor: true
+    }
+  },
+  {
     path: '/',
     component: DashView,
+    meta: {
+      requiresAuth: true
+    },
     children: [
       {
+        path: 'dosen',
+        alias: 'd',
+        component: DView,
+        name: 'Dosen'
+      }, {
+        path: 'abmas',
+        alias: 'ab',
+        component: AbView,
+        name: 'Abmas'
+      }, {
+        path: 'penelitian',
+        alias: 'pe',
+        component: PeView,
+        name: 'Penelitian'
+      }, {
+        path: 'publikasi',
+        alias: 'pu',
+        component: PuView,
+        name: 'publikasi'
+      }, {
         path: 'datadasar',
-        alias: '',
+        alias: 'dd',
         component: DDUView,
         name: 'Data Dasar',
         meta: {description: 'Datanya dasarannya seperti apa?'}
@@ -79,6 +115,12 @@ const routes = [
         component: AView,
         name: 'Aspek',
         meta: {description: 'Apa yang telah dicapai??'}
+      }, {
+        path: 'konkin',
+        alias: '',
+        component: Kview,
+        name: 'Konkin',
+        meta: {description: 'Apa yang telah dicapai??'}
       }
     ]
   }, {
@@ -87,5 +129,4 @@ const routes = [
     component: NotFoundView
   }
 ]
-
 export default routes

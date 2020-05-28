@@ -27,6 +27,7 @@ Vue.use(VueRouter)
 var router = new VueRouter({
   routes: routes,
   mode: 'history',
+  base: '/',
   linkExactActiveClass: 'active',
   scrollBehavior: function(to, from, savedPosition) {
     return savedPosition || { x: 0, y: 0 }
@@ -45,6 +46,14 @@ router.beforeEach((to, from, next) => {
     next({
       path: '/login',
       query: { redirect: to.fullPath }
+    })
+  } else if (
+    to.matched.some(record => record.meta.requiresVisitor) &&
+    (router.app.$store.state.token)
+  ) {
+    console.log('Authenticated')
+    next({
+      path: '/'
     })
   } else {
     next()

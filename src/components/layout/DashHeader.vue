@@ -9,15 +9,24 @@
       <a href="javascript:;" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <user-menu :user="user"></user-menu>
+        </ul>
+      </div>
     </nav>
   </header>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import UserMenu from './UserMenu'
 
 export default {
   name: 'DashHeader',
+  components: {
+    UserMenu
+  },
   props: ['user'],
   computed: {
     ...mapState([

@@ -12,7 +12,7 @@ import jexcel from 'jexcel'
 import 'jexcel/dist/jexcel.css'
 import axios from 'axios'
 
-var host = 'http://10.199.14.46:8017/'
+var host = 'https://10.199.14.46:8017/'
 
 var temp = {}
 var changed = function(instance, cell, x, y, value) {
@@ -22,7 +22,6 @@ var changed = function(instance, cell, x, y, value) {
     var dasar = datatemp[0]
     var unit = datatemp[1]
     datatemp[x] = value
-    console.log(datatemp)
     axios({
       method: 'put',
       url: host + 'api/indikatorperiode/' + dasar + unit,
@@ -32,7 +31,6 @@ var changed = function(instance, cell, x, y, value) {
         bobot: datatemp[2]
       }
     }).then((response) => {
-      console.log(response.data)
       console.log('Update Berhasil')
     })
   })
@@ -51,7 +49,6 @@ var insertrow = function(instance) {
     }
     var randoman = Math.floor(Math.random() * j)
     var adalah = sebenarnya[randoman]
-    console.log(randoman)
     axios({
       method: 'post',
       url: host + 'api/indikatorperiode/',
@@ -61,7 +58,6 @@ var insertrow = function(instance) {
         bobot: 0
       }
     }).then((response) => {
-      console.log(response.data)
       console.log('Insert Berhasil')
     }).catch(err => {
       console.log(err)
