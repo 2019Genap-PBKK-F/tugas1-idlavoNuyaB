@@ -59,7 +59,7 @@
         <router-link tag="li" class="pageLink" to="/p">
           <a>
             <i class="fa fa-table"></i> Periode
-          </a>]
+          </a>
         </router-link>
         <router-link tag="li" class="pageLink" to="/sk">
           <a>
