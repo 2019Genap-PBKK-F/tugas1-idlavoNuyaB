@@ -51,7 +51,7 @@ export default {
         var temp
         var temporal = []
         for (var l = 0; l < count2; l++) {
-          if (this.id === this.departemennya[l].name) {
+          if (this.id === this.departemennya[l].nama) {
             temp = this.departemennya[l]
           }
         }
@@ -65,7 +65,7 @@ export default {
               j = j + 1
             }
           } else {
-            if (temp.name === res.data[i].Satuan) {
+            if (temp.nama === res.data[i].Satuan) {
               hasil[j] = res.data[i]
               j = j + 1
             }
