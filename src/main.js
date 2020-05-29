@@ -47,14 +47,14 @@ router.beforeEach((to, from, next) => {
       path: '/login',
       query: { redirect: to.fullPath }
     })
-  } else if (
-    to.matched.some(record => record.meta.requiresVisitor) &&
-    (router.app.$store.state.token)
-  ) {
-    console.log('Authenticated')
-    next({
-      path: '/'
-    })
+  // } else if (
+  //   to.matched.some(record => record.meta.requiresVisitor) &&
+  //   (router.app.$store.state.token)
+  // ) {
+  //   console.log('Authenticated')
+  //   next({
+  //     path: '/'
+  //   })
   } else {
     next()
   }
