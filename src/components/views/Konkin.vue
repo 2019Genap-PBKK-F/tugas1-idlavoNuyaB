@@ -57,7 +57,7 @@ export default {
         }
         for (var i = 0; i < count; i++) {
           for (var h = 0; h < 8; h++) {
-            temporal[h] = temp.name[h]
+            temporal[h] = temp.nama[h]
           }
           if (temporal.join('') === 'Fakultas') {
             if (temp.id === res.data[i].Induk || temp.id === res.data[i].ID) {
